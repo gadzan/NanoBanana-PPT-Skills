@@ -116,15 +116,18 @@ def generate_slide(prompt, slide_number, output_dir, resolution="2K"):
 
     # 获取API密钥
     api_key = os.environ.get("GEMINI_API_KEY")
+    api_path = os.environ.get("GEMINI_API_PATH")
     if not api_key:
         print("错误: 未设置 GEMINI_API_KEY 环境变量")
         print("请设置: export GEMINI_API_KEY='your-api-key'")
         sys.exit(1)
 
+    custom_http_options = {"base_url": api_path }
+
     print(f"正在生成第 {slide_number} 页...")
 
     try:
-        client = genai.Client(api_key=api_key)
+        client = genai.Client(api_key=api_key, http_options=custom_http_options)
 
         response = client.models.generate_content(
             model="gemini-3-pro-image-preview",
