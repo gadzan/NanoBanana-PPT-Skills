@@ -33,6 +33,7 @@
 **可选（用于视频功能）：**
 - `KLING_ACCESS_KEY`: 可灵 AI Access Key
 - `KLING_SECRET_KEY`: 可灵 AI Secret Key
+- `GEMINI_API_KEY`: Google AI API 地址
 
 ### Python 依赖
 
